@@ -15,7 +15,7 @@ const createSummaryPost = (id, url, numComments) => {
         <div class='summary-text'>
         <a href='${url}'><h2> ${postTitle} </h2></a>
         <div class='sumary-content'> ${summaryText} </div>
-        <div class='summary-footer'> ${comments} &#8226; <a href='${url}'> Continue lendo </a></div>
+        <div class='summary-footer'> <img src='https://i.imgur.com/w9wT980.png?1'/> ${comments} &#8226; <a href='${url}'> Continue lendo </a></div>
         </div>
   </div>
   ` 
