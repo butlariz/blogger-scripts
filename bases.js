@@ -57,33 +57,31 @@ function clsRelatedPosts(root) {
   const divRelated = $("#cls-relatedpost");
   const entry = root.feed.entry || [];
   entry.map(function (value) {
-  if (divRelated.children().length < 3) {
-    //variables data
-    let post = value;
-    let postTitle = post.title.$t;
-    let links = post.link || [];
-    for (var j in links) {
-      if (links[j].rel == "alternate") break;
-    }
-    let postUrl = links[j].href;
-    if (window.location.href !== postUrl) {
-    console.log(window.location.href);
-    console.log(links[j]);
-    let orgImgUrl = post.media$thumbnail ? post.media$thumbnail.url :"http://2.bp.blogspot.com/-OSlo4lj_H4w/VRMrRXuZWyI/AAAAAAABCNA/RQsmcuaWiEE/s1600/sem.gif";
-    let imgUrl = orgImgUrl.replace("s72-c", "s" + 430 + "-c");
+    if (divRelated.children().length < 3) {
+      //variables data
+      let post = value;
+      let postTitle = post.title.$t;
+      let links = post.link || [];
+      for (var j in links) {
+        if (links[j].rel == "alternate") break;
+      }
+      let postUrl = links[j].href;
+      if (window.location.href !== postUrl) {
+        let orgImgUrl = post.media$thumbnail ? post.media$thumbnail.url :"http://2.bp.blogspot.com/-OSlo4lj_H4w/VRMrRXuZWyI/AAAAAAABCNA/RQsmcuaWiEE/s1600/sem.gif";
+        let imgUrl = orgImgUrl.replace("s72-c", "s" + 430 + "-c");
 
-    let templateItem = `
-    <div class='related-item'>
-      <a href='${postUrl}'>
-        <div class='related-clsthumb'> <img src='${imgUrl}'/> </div>
-        <div class='related-clstext'>
-        <span class='related-clstitle'> ${postTitle} </span>
-    </div>
-      </a>
-    </div>
-  `
-    divRelated.append(templateItem);
- }
- }
- });
+        let templateItem = `
+        <div class='related-item'>
+          <a href='${postUrl}'>
+            <div class='related-clsthumb'> <img src='${imgUrl}'/> </div>
+            <div class='related-clstext'>
+             <span class='related-clstitle'> ${postTitle} </span>
+            </div>
+           </a>
+        </div>
+        `
+        divRelated.append(templateItem);
+      }
+    }
+  });
 }
