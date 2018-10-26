@@ -85,3 +85,17 @@ function clsRelatedPosts(root) {
     }
   });
 }
+
+$( document ).ready(function() {
+    const responsiveMenu = $("#responsive")
+    const nav = $("#PageList1")
+    responsiveMenu.click(function(){
+        if (responsiveMenu.hasClass("open-menu")) {
+            nav.attr("style","height: auto");
+            responsiveMenu.toggleClass("close-menu open-menu");
+        } else if (responsiveMenu.hasClass("close-menu")) {
+            nav.removeAttr("style");
+            responsiveMenu.toggleClass("open-menu close-menu");
+        }
+    })
+})
